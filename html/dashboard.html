@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | OneTask</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+<!-- AUTH CHECK -->
+<script src="../js/auth.js"></script>
+<script>
+    requireAuth();
+</script>
+
+<!-- NAVBAR -->
+<nav class="top-nav">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="addtask.html">Add Task</a>
+    <a href="profile.html">Profile</a>
+    <button onclick="logout()">Logout</button>
+</nav>
+
+<!-- CENTER CONTENT -->
+<div class="page-center">
+    <div class="dashboard-box">
+        <h2>Welcome, <span id="user-name"></span> 👋</h2>
+        <p>You are logged in.</p>
+    </div>
+</div>
+
+<!-- USERNAME SCRIPT -->
+<script>
+    const user = getCurrentUser();
+    document.getElementById("user-name").textContent = user.username;
+</script>
+
+</body>
+</html>
