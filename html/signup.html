@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up | OneTask</title>
+    <link rel="stylesheet" href="../css/signup.css">
+</head>
+<body>
+<header class="top-bar">
+    <a href="index.html" class="back-btn">← Back</a>
+    <span>⭕ OneTask</span>
+</header>
+
+<div class="center-wrapper">
+    <div class="box">
+        <h2>Sign-up</h2>
+
+        <form id="signup-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="occupation" placeholder="Occupation" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+            <button type="submit">Submit</button>
+        </form>
+
+        <p>
+            Already have an account?
+            <a href="signin.html">Log-in</a>
+        </p>
+    </div>
+</div>
+
+<footer class="footer">⭕ OneTask</footer>
+
+<script src="../js/auth.js"></script>
+<script>
+document.getElementById("signup-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
+
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    signup(
+        document.getElementById("username").value,
+        document.getElementById("email").value,
+        document.getElementById("occupation").value,
+        password
+    );
+});
+</script>
+</body>
+</html>
